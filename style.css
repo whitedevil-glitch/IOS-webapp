@@ -1,0 +1,360 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    background-image: url(./images/bg-ios.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.iphone {
+    height: 812px;
+    width: 375px;
+    border: 12px solid black;
+    border-radius: 40px;
+    position: relative;
+    background-color: black;
+    overflow: hidden;
+    user-select: none;
+}
+/* notch */
+.iphone:before {
+    content: '';
+    width: 209px;
+    height: 30px;
+    border: 1px solid black;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: black;
+    z-index: 5;
+}
+
+.off {
+    position: absolute;
+    z-index: 4;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    cursor: pointer;
+}
+
+.locked-wrapper {
+    width: 100%;
+    height: 200%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.locked-drop {
+    width: 100%;
+    height: 60%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.locked {
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    background: url('images/locked-bg.png');
+    background-size: cover;
+    transition: filter 0.7s;
+}
+.move {
+    filter: blur(2px);
+}
+.time-cont {
+    color: #f1f1f1;
+    position: absolute;
+    top: 20%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.time {
+    font-size: 80px;
+}
+.date {
+    font-size: 20px;
+}
+
+.top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    display: flex;
+}
+.top div {
+    width: 83px;
+    height: 100%;
+    flex-grow: 0;
+    color: #f2f2f2;
+    padding-top: 4px;
+    border-top: 0px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.top .left {
+    border-top-right-radius: 12px;
+    box-shadow: 5px -12px black;
+}
+.top .right {
+    margin-left: auto;
+    font-size: 13px;
+    border-top-left-radius: 12px;
+    box-shadow: -5px -12px black;
+}
+.top .right .fas {
+    margin: auto;
+}
+.top .right .fas:last-child {
+    margin-right: 8px;
+}
+.top .right .fa-signal {
+    margin-left: 8px;
+}
+
+.unlocked {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: url('images/bg.jpg');
+    background-size: cover;
+}
+
+.unlocked-bottom {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    border-radius: 20px;
+    height: fit-content;
+    padding: 10px;
+    display: flex;
+    background-color: rgba(38, 34, 38, 0.5);
+}
+.unlocked-bottom .app:first-child {
+    margin-left: 5px;
+}
+.unlocked-bottom .app:last-child {
+    margin-right: 5px;
+}
+
+.app {
+    position: relative;
+    width: 62px;
+    height: 62px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.app img {
+    width: 100%;
+    height: 100%;
+}
+
+.home-cont {
+    position: absolute;
+    top: 38px;
+    margin-top: 15px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 185px);
+    cursor: grab;
+}
+.home-cont:active {
+    cursor: grabbing;
+}
+.home-cont .page {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 85px 85px 85px 85px 85px 85px;
+    flex-shrink: 0;
+}
+
+
+.pages-cont {
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll;
+    display: flex;
+}
+.pages-cont::-webkit-scrollbar {
+    display: none;
+}
+
+.page .app {
+    margin-bottom: 15px;
+}
+.page .app .name {
+    position: absolute;
+    bottom: -22px;
+    left: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+}
+
+.page-count {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 87px;
+    left: 0;
+    width: 100%;
+    margin-bottom: 25px;
+}
+.page-count i {
+    color: #e6e6e6;
+    margin: 8px;
+    font-size: 9px;
+}
+.page-count .on {
+    color: white;
+}
+
+
+
+/* home launch animations */
+.transition {
+    transition: all 0.25s ease-in;
+}
+
+.anim {
+    transform: scale(2.5) !important;
+    perspective: 1000px;
+}
+.anim1 {
+    transform: rotateY(50deg) scale(1.3);
+}
+.anim2 {
+    transform: translate(-50%, 100%);
+}
+
+
+
+/* power button */
+.power-btn {
+    position: relative;
+    width: 8px;
+    height: 100px;
+    margin-top: 180px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: black;
+    cursor: pointer;
+    transition: margin-left 0.3s;
+}
+.power-btn:active {
+    margin-left: -5px;
+}
+.power-text {
+    position: absolute;
+    left: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.power-text .txt {
+    color: #e6e6e6;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* gesture */
+.gesture {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 0px;
+    border: 4px solid #f1f1f1;
+    border-radius: 10px;
+    z-index: 4;
+    background-color: #f1f1f1;
+    cursor: grab;
+}
+.gesture:active {
+    cursor: grabbing;
+}
+.gesture:before {
+    content: 'Swipe up to unlock';
+    position: absolute;
+    bottom: 100%;
+    width: 320px;
+    color: white;
+    text-align: right;
+    font-size: 22px;
+    font-weight: 600;
+    transform: translate(-50%, -100%);
+    opacity: 0;
+}
+.stalling {
+    animation: gesture 3s linear infinite;
+    animation-delay: 2s;
+}
+.stalling:before {
+    animation: gestureText 3s linear infinite;
+    animation-delay: 2s;
+}
+@keyframes gesture {
+    0% {
+        transform: translate(-50%, 0);
+    }
+    10% {
+        transform: translate(-50%, -10px);
+    }
+    40% {
+        transform: translate(-50%, 0);
+    }
+    100% {
+        transform: translate(-50%, 0);
+    }
+}
+@keyframes gestureText {
+    0% {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+    10% {
+        transform: translate(-50%, -130%);
+        opacity: 1;
+    }
+    40% {
+        transform: translate(-50%, -140%);
+        opacity: 0.9;
+    }
+    70% {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+}
+
+/* Coded By WhiteDevil (no need to write this anyway lmao) */
